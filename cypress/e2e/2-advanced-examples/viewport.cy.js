@@ -18,7 +18,8 @@ context('Viewport', () => {
 
     // lets see what our app looks like on a super large screen
     cy.viewport(2999, 2999)
-
+    cy.get('#navbar').should('be.visible')
+    
     // cy.viewport() accepts a set of preset sizes
     // to easily set the screen to a device's width and height
 

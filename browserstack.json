@@ -1,0 +1,29 @@
+{
+  "browsers": [
+    {
+      "browser": "chrome",
+      "os": "Windows 10",
+      "versions": ["latest"]
+    }
+  ],
+  "run_settings": {
+    "cypress_config_file": "./cypress.config.js",
+    "cypress_version": "12.9",
+    "project_name": "Cypress Kitchen Sink Example tvv",
+    "build_name": "Build no: 1",
+    "specs": ["cypress/e2e/1-getting-started/*.cy.js"],
+    "exclude": ["cypress/e2e/2-advanced-examples/*.cy.js"],
+    "parallels": "2",
+    "npm_dependencies": {},
+    "package_config_options": {},
+    "headless": true,
+    "spec_timeout": 3
+  },
+  "connection_settings": {
+    "local": true,
+    "local_identifier": null,
+    "local_mode": null,
+    "local_config_file": null
+  },
+  "disable_usage_reporting": false
+}

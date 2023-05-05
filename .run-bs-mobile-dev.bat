@@ -1,0 +1,1 @@
+npm run bs:run-mobile-dev --username_bs=vitaliitymashkov_a5diwz --access_key_bs=cqfqg6XjZsonjsSEYiwP
