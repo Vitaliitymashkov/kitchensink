@@ -56,6 +56,7 @@
     "a": "echo \"The value of --env_for_test is '%npm_config_env_for_test%'\"",
     "cy:run-on-dev1": "echo \"The value is '%npm_config_key_cy%'\"",
     "bs:run-on-dev": "browserstack-cypress run --sync --username '%npm_config_username_bs%' --key '%npm_config_access_key_bs%'",
+    "bs:run-on-dev-with-env": "browserstack-cypress run --sync --username '%username_bs%' --key '%access_key_bs%'",
     "bs:run-mobile-dev": "npx browserstack-cypress run --sync --config-file browserstack_mobile.json --username '%npm_config_username_bs%' --key '%npm_config_access_key_bs%'",
     "cy:run-on-dev": "cypress run --spec 'cypress/e2e/1-getting-started/*.cy.js' --record --key %npm_config_key_cy%"
   },
@@ -94,11 +95,5 @@
   },
   "engines": {
     "node": "^14.0.0 || ^16.0.0 || >=18.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm run lint:yaml",
-      "pre-push": "npm run lint && npm run lint:yaml"
-    }
   }
 }
