@@ -34,12 +34,7 @@
 //    docker logs blue-ocean
 
 pipeline {
-  agent {
-    // this image provides everything needed to run Cypress
-    docker {
-      image 'cypress/base:10'
-    }
-  }
+  agent any
 
   stages {
     // first stage installs node dependencies and Cypress binary
@@ -58,7 +53,7 @@ pipeline {
       steps {
         // start local server in the background
         // we will shut it down in "post" command block
-        sh 'nohup npm run start &'
+        sh 'npm run start &'
       }
     }
 

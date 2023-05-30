@@ -3,11 +3,11 @@
       stages {
           stage('setup') {
             steps {
-                browserstack(credentialsId: '1498631c-e8e1-41df-8618-d25afbfa5dda') {
+                browserstack(credentialsId: '1498631c-e8e1-41df-8618-d25afbfa5dda', localConfig: [localOptions: '--force-local']) {
                     bat 'npm install'
                     bat 'npm install -g browserstack-cypress-cli'
 
-                    bat 'browserstack-cypress run'
+                    bat 'C:\\Users\\Vitalii.Tymashkov\\AppData\\Roaming\\npm\\browserstack-cypress run'
                 }
             }
           }
