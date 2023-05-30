@@ -1,16 +1,36 @@
 pipeline {
-   agent any
-   
-   stages {
-      stage('setup') {
-         steps {
-            browserstack(credentialsId: '1498631c-e8e1-41df-8618-d25afbfa5dda') {
-               echo "hello"
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']],
+        doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [],
+        userRemoteConfigs: [[url: 'https://github.com/Vitaliitymashkov/kitchensink.git']]])
             }
-         }
-         steps {
-            echo "hello2"
-         }
-      }
+        }
+        stage('Build') {
+            steps {
+                bat 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    env.CYPRESS_BASE_URL = 'http://devlab09:5565'
+                    env.CYPRESS_VALID_USERNAME_FOR_TEST = 'its'
+                    env.CYPRESS_VALID_PASSWORD_FOR_TEST = 'testits'
+                    env.CYPRESS_INVALID_USERNAME_FOR_TEST = 'its1'
+                    env.CYPRESS_INVALID_PASSWORD_FOR_TEST = 'testits1'
+                }
+                bat "browserstack-cypress run --sync --username \"%username_bs%\" --key \"%access_key_bs%\" " +
+        "--env CYPRESS_BASE_URL=\"%CYPRESS_BASE_URL%\" " +
+        "--env CYPRESS_VALID_USERNAME_FOR_TEST=\"%CYPRESS_VALID_USERNAME_FOR_TEST%\" " +
+        "--env CYPRESS_VALID_PASSWORD_FOR_TEST=\"%CYPRESS_VALID_PASSWORD_FOR_TEST%\" " +
+        "--env CYPRESS_INVALID_USERNAME_FOR_TEST=\"%CYPRESS_INVALID_USERNAME_FOR_TEST%\" " +
+        "--env CYPRESS_INVALID_PASSWORD_FOR_TEST=\"%CYPRESS_INVALID_PASSWORD_FOR_TEST%\" " +
+        '--env VIEWPORT_ENV=mobile'
+            }
+        }
     }
-  }
+}
