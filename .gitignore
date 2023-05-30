@@ -13,3 +13,7 @@ env
 .run-bs-dev.bat
 .run-example.bat
 .run-cy-dev.bat
+.bs-init.sh
+log/build_results.txt
+results/browserstack-cypress-report.html
+results/browserstack-cypress-report.json
