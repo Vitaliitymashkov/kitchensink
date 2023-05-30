@@ -1,0 +1,15 @@
+ pipeline {
+      agent any
+      stages {
+          stage('setup') {
+            steps {
+                browserstack(credentialsId: '1498631c-e8e1-41df-8618-d25afbfa5dda') {
+                    bat 'npm install'
+                    bat 'npm install -g browserstack-cypress-cli'
+
+                    bat 'browserstack-cypress run'
+                }
+            }
+          }
+        }
+      }
