@@ -13,7 +13,7 @@ describe("example to-do app", () => {
     cy.checkEnv();
   });
 
-  it.skip("displays envs", () => {
+  it("displays envs 2", () => {
     cy.log("ENV pass = " + Cypress.env("password1"));
     cy.log("ENV example = " + Cypress.env("example"));
     cy.log("ENV test_VAR= " + Cypress.env("TEST_VAR"));
