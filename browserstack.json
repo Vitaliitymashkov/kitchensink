@@ -11,7 +11,7 @@
     "cypress_version": "12.9",
     "project_name": "Cypress Kitchen Sink Example tvv",
     "build_name": "Build no: 1",
-    "specs": ["cypress/e2e/1-getting-started/*.cy.js"],
+    "specs": ["cypress/e2e/0-experiments/*.cy.js"],
     "exclude": ["cypress/e2e/2-advanced-examples/*.cy.js"],
     "parallels": "2",
     "npm_dependencies": {},
