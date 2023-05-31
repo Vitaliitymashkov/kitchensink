@@ -17,6 +17,7 @@ describe("example to-do app", () => {
     cy.log("ENV pass = " + Cypress.env("password1"));
     cy.log("ENV example = " + Cypress.env("example"));
     cy.log("ENV test_VAR= " + Cypress.env("TEST_VAR"));
+    console.log("console ENV test_VAR= " + Cypress.env("TEST_VAR"));
 
     cy.log("ENV_CY_USER = " + username);
     cy.log("ENV_CY_PASS1 = " + password);
